@@ -1,24 +1,40 @@
-import logo from './logo.svg';
+
+import Content from './components/content';
+import Create from './components/create';
+import Read from './components/read';
+import 'bootstrap/dist/css/bootstrap.min.css';//import bootstrap to all pages
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';//Need to import a few things for the router
 import './App.css';
+import { Container } from 'react-bootstrap';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        {/*Navbar changes the url to allow us to use different components on different urls */}
+        <Navbar bg="primary" data-bs-theme="dark">
+          <Container>
+            <Navbar.Brand href="/">Navbar</Navbar.Brand>
+            <Nav className="me-auto">
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/create">Create</Nav.Link>
+              <Nav.Link href="/read">Read</Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
+        {/* Where we put the new componet of which change of url */}
+        <Routes>
+          {/* when we go to this path, show this component */}
+          <Route path='/' element={<Content></Content>}></Route>
+          <Route path='/read' element={<Read></Read>}></Route>
+          <Route path='/create' element={<Create></Create>}></Route>
+        </Routes>
+
+      </div>
+    </BrowserRouter>
   );
 }
 
