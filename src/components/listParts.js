@@ -9,6 +9,9 @@ function ListParts(props) {
                 <Card.Body>
                     <blockquote className="blockquote mb-0">
                         <footer>{props.myTask.status}</footer>
+                        <footer>{props.myTask.dueDate}</footer>
+                        <footer>{props.myTask.difficulty}</footer>
+                        <footer>{props.myTask.status}</footer>
                     </blockquote>
                 </Card.Body>
             </Card>

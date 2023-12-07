@@ -1,20 +1,42 @@
 import Tasks from "./tasks";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Read() {
-    const data = [
-        {
-            "taskName": "washing",
-            "status": "not started"
-        },
-        {
-            "taskName": "project",
-            "status": "in progress"
-        },
-        {
-            "taskName": "washing",
-            "status": "complete"
-        }
-    ];
+    const [data, setData] = useState([]);
+    // const data = [
+    //     {
+    //         "taskName": "washing",
+    //         "status": "not started",
+    //         "difficulty": "easy",
+    //         "dueDate": "Wednesday"
+    //     },
+    //     {
+    //         "taskName": "project",
+    //         "status": "in progress",
+    //         "difficulty": "medium",
+    //         "dueDate": "Tuesday",
+    //     },
+    //     {
+    //         "taskName": "washing",
+    //         "status": "complete",
+    //         "difficulty": "hard",
+    //         "dueDate": "Monday"
+    //     }
+    // ];
+
+    //useEffect is a React Hook that lets you synchronize a component with an external system.
+    useEffect(
+        () => {
+            //asyncrious operation taking place here
+            //callback, get data from tasks component
+            axios.get('https://jsonblob.com/api/jsonblob/1182378275208290304').then((response) => {
+                setData(response.data.tasks)
+            }).catch((error) => { //catch errors - is to send an error message to the console
+                console.log(error);
+            });
+        }, []
+    );
 
     return (
         <div>
