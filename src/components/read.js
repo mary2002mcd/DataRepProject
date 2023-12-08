@@ -30,8 +30,8 @@ function Read() {
         () => {
             //asyncrious operation taking place here
             //callback, get data from tasks component
-            axios.get('https://jsonblob.com/api/jsonblob/1182378275208290304').then((response) => {
-                setData(response.data.tasks)
+            axios.get('http://localhost:4000/api/tasks').then((response) => {
+                setData(response.data.myTasks)
             }).catch((error) => { //catch errors - is to send an error message to the console
                 console.log(error);
             });

@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import axios from "axios";
 
 
 
@@ -13,6 +13,18 @@ function Create() {
         e.preventDefault();
         //write to the console
         console.log("Task Name: " + taskName + " Due Date: " + dueDate + " Difficulty: " + difficulty + "Status: " + status);
+
+        const task = {
+            taskName:taskName,
+            dueDate:dueDate,
+            difficulty:difficulty,
+            status:status
+        }
+
+        //makes a http request
+        axios.post('http://localhost:4000/api/task',task)
+        .then()//invoke whats in here
+        .catch();//if an exception
     }
     //return this to the screen when the component is called
     return (
