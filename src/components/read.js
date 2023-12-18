@@ -38,10 +38,20 @@ function Read() {
         }, []
     );
 
+          //to make the read component automatically update when deleted so you dont have to refresh
+          const Reload = (e)=>{
+            //get all the data from the database
+            axios.get('http://localhost:4000/api/tasks').then((response) => {
+                    setData(response.data)
+                }).catch((error) => { //catch errors - is to send an error message to the console
+                    console.log(error);
+                });
+        }
+
     return (
         <div>
             <h2>Hello from the read component!</h2>
-            <Tasks myTasks={data}></Tasks> {/*call the tasks component */}
+            <Tasks myTasks={data} ReloadData={Reload}></Tasks> {/*call the tasks component */}
         </div>
     );
 }

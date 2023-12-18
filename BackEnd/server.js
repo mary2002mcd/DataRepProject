@@ -37,6 +37,14 @@ const taskSchema = new mongoose.Schema({
 //add to the taskSchema
 const taskModel = mongoose.model('my_tasks', taskSchema);
 
+//server logic for delete -- params of the url
+app.delete('/api/task/:id', async (req, res)=>{
+    console.log("Delete: "+ req.params.id)
+    //local variable book - everytime you want to interact with the database you use the book model
+    let task = await bookModel.findByIdAndDelete(req.params.id);
+    res.send(task);//async so wont proceed to this line until the previous one is finished
+})
+
 //method for updated the details of the task - async to make sure task is not null
 app.put('/api/task/:id', async(req, res)=>{
     console.log("update: "+req.params.id);

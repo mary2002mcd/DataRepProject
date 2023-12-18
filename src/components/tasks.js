@@ -7,7 +7,7 @@ function Tasks(props){
     return props.myTasks.map(
         //task is an argument
         (task)=>{
-            return <ListParts myTask={task} key={task._id}></ListParts>
+            return <ListParts myTask={task} key={task._id} Reload={()=>{props.ReloadData()}}></ListParts>
         }
     );
 }
