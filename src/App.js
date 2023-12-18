@@ -8,6 +8,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';//Need to import a few things for the router
 import './App.css';
 import { Container } from 'react-bootstrap';
+import Edit from './components/edit';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path='/' element={<Content></Content>}></Route>
           <Route path='/read' element={<Read></Read>}></Route>
           <Route path='/create' element={<Create></Create>}></Route>
+          <Route path='/edit/:id' element={<Edit></Edit>}></Route>
         </Routes>
 
       </div>

@@ -1,4 +1,5 @@
 import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function ListParts(props) {
     return (
@@ -14,6 +15,8 @@ function ListParts(props) {
                         <footer>{props.myTask.status}</footer>
                     </blockquote>
                 </Card.Body>
+
+                <Link to={'/edit/'+props.myTask._id} className="btn btn-primary">Edit</Link>
             </Card>
         </div>
     );
