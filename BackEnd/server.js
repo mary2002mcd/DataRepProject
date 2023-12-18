@@ -40,8 +40,8 @@ const taskModel = mongoose.model('my_tasks', taskSchema);
 //server logic for delete -- params of the url
 app.delete('/api/task/:id', async (req, res)=>{
     console.log("Delete: "+ req.params.id)
-    //local variable book - everytime you want to interact with the database you use the book model
-    let task = await bookModel.findByIdAndDelete(req.params.id);
+    //local variable task - everytime you want to interact with the database you use the task model
+    let task = await taskModel.findByIdAndDelete(req.params.id);
     res.send(task);//async so wont proceed to this line until the previous one is finished
 })
 
@@ -50,7 +50,7 @@ app.put('/api/task/:id', async(req, res)=>{
     console.log("update: "+req.params.id);
 
     let task = await taskModel.findByIdAndUpdate(req.params.id, req.body, {new:true});
-    res.send(task);//send back updated book
+    res.send(task);//send back updated task
 })
 
 app.post('/api/task', (req, res) => {
