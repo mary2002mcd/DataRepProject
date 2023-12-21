@@ -24,10 +24,10 @@ main().catch(err => console.log(err));
 async function main() {
     await mongoose.connect('mongodb+srv://admin:admin@cluster0.2qikblf.mongodb.net/DB14?retryWrites=true&w=majority');
 
-    // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
+    // this has the link to my mongo database
 }
 
-//creating the schema
+//creating the schema that also holds the types of the data
 const taskSchema = new mongoose.Schema({
     taskName: String,
     status: String,
@@ -52,7 +52,7 @@ app.put('/api/task/:id', async(req, res)=>{
     let task = await taskModel.findByIdAndUpdate(req.params.id, req.body, {new:true});
     res.send(task);//send back updated task
 })
-
+//creating a task
 app.post('/api/task', (req, res) => {
     console.log(req.body);
 
@@ -83,45 +83,6 @@ app.get('/api/task/:identifier',async(req,res)=>{
 
     res.send(task);
 })
-//localhost:4000
-// app.get('/', (req, res) => {
-//     res.send('hello world')
-// })
-
-// app.post('/api/task', (req,res)=>{
-//     console.log(req.body);
-//     res.send("Data Recieved");
-// })
-
-// app.get('/api/tasks', (req, res) => {
-//     //the data for the app
-//     const tasks = [
-//         {
-//             "taskName": "washing",
-//             "status": "not started",
-//             "difficulty": "easy",
-//             "dueDate": "Wednesday"
-//         },
-//         {
-//             "taskName": "project",
-//             "status": "in progress",
-//             "difficulty": "hard",
-//             "dueDate": "Wednesday"
-//         },
-//         {
-//             "taskName": "make dinner",
-//             "status": "finished",
-//             "difficulty": "medium",
-//             "dueDate": "Wednesday"
-//         }
-//     ]
-//     //array - called in read.js
-//     res.json({
-//         myTasks: tasks,
-//         "Message": "Some Information",
-//         "Disclaimer": "Hello World"
-//     })
-// })
 
 app.listen(port, () => {
     console.log(`example app listening on port ${port}`)

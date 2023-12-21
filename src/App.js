@@ -16,9 +16,9 @@ function App() {
     <BrowserRouter>
       <div className="App">
         {/*Navbar changes the url to allow us to use different components on different urls */}
-        <Navbar bg="primary" data-bs-theme="dark">
+        <Navbar bg="dark" data-bs-theme="dark">
           <Container>
-            <Navbar.Brand href="/">Navbar</Navbar.Brand>
+            <Navbar.Brand href="/">List App</Navbar.Brand>
             <Nav className="me-auto">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/maketask">Make Task</Nav.Link>
@@ -26,7 +26,7 @@ function App() {
             </Nav>
           </Container>
         </Navbar>
-        {/* Where we put the new componet of which change of url */}
+        {/* Where we put the new component of which change of url */}
         <Routes>
           {/* when we go to this path, show this component */}
           <Route path='/' element={<Content></Content>}></Route>

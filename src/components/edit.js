@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+
+//this is to update the already existing information in the mongo database
 export default function Edit(props) {
     // The useParams hook returns an object of key/value pairs of
     // the dynamic params from the current URL that were matched by
@@ -42,10 +44,10 @@ export default function Edit(props) {
             difficulty: difficulty,
             dueDate: dueDate
         };
-        axios.put('http://localhost:4000/api/task/' + id, newTask)
+        axios.put('http://localhost:4000/api/task/' + id, newTask)//updates and brings you back to the list page
             .then((res) => {
                 console.log(res.data);
-                navigate('/read');
+                navigate('/todolist');
             });
     }
     return (//html
@@ -53,7 +55,7 @@ export default function Edit(props) {
             {/* calling the variable handleSubmit when the form is submitted*/}
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label>Add Task Name: </label>
+                    <label>Edit Task Name: </label>
                     <input type="text"
                         className="form-control"
                         value={taskName}
@@ -61,22 +63,30 @@ export default function Edit(props) {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Add Status: </label>
-                    <input type="text"
+                    <label>Edit Status: </label>
+                    <select
                         className="form-control"
                         value={status}
                         onChange={(e) => setStatus(e.target.value)}
-                    />
+                    >
+                        <option>To Be Started</option>
+                        <option>In Progress</option>
+                        <option>Finished</option>
+                    </select>
                 </div>
-                <div className="form-group"><label>Add Difficulty: </label>
-                    <input type="text"
+                <div className="form-group"><label>Edit Difficulty: </label>
+                    <select
                         className="form-control"
                         value={difficulty}
                         onChange={(e) => setDifficulty(e.target.value)}
-                    />
+                    >
+                        <option>Easy</option>
+                        <option>Medium</option>
+                        <option>Difficult</option>
+                    </select>
                 </div>
-                <div className="form-group"><label>Add Due Date: </label>
-                    <input type="text"
+                <div className="form-group"><label>Edit Due Date: </label>
+                    <input type="date"
                         className="form-control"
                         value={dueDate}
                         onChange={(e) => setDueDate(e.target.value)}

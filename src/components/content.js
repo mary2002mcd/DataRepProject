@@ -3,7 +3,7 @@ function Content() {
         //call this in App.js to display in in the app
         //put curly brackets around javascript when inside HTML
         //this is what is shown in the home page
-        <div>
+        <div style={{backgroundImage: `url("https://www.onlygfx.com/wp-content/uploads/2020/07/blank-post-it-note-on-pin-board-2-1024x768.jpg")`}}>
             <h1>Welcome to your personalised To-Do List App</h1>
             <br></br>
             {/*This will display the current time*/}
