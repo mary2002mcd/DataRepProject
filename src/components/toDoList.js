@@ -2,7 +2,7 @@ import Tasks from "./tasks";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-function Read() {
+function ToDoList() {
     const [data, setData] = useState([]);
     // const data = [
     //     {
@@ -49,8 +49,9 @@ function Read() {
         }
 
     return (
-        <div>
-            <h2>Hello from the read component!</h2>
+        //give it the color of a cork post it board
+        <div style={{backgroundColor: 'burlywood'}}>
+            <h2>To-Do List!</h2>
             <Tasks myTasks={data} ReloadData={Reload}></Tasks> {/*call the tasks component */}
         </div>
     );
@@ -58,4 +59,4 @@ function Read() {
 
 
 
-export default Read;
+export default ToDoList;

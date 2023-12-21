@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 
-function Create() {
+function MakeTask() {
     //The React useState Hook allows us to track state in a function component.
     const [taskName, setTaskName] = useState('');
     const [dueDate, setDueDate] = useState('');
@@ -76,4 +76,4 @@ function Create() {
         </div>
     );
 }
-export default Create;
+export default MakeTask;

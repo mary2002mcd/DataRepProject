@@ -1,7 +1,5 @@
 
 import Content from './components/content';
-import Create from './components/create';
-import Read from './components/read';
 import 'bootstrap/dist/css/bootstrap.min.css';//import bootstrap to all pages
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -9,6 +7,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';//Need to import
 import './App.css';
 import { Container } from 'react-bootstrap';
 import Edit from './components/edit';
+import ToDoList from './components/toDoList';
+import MakeTask from './components/makeTask';
 
 
 function App() {
@@ -21,8 +21,8 @@ function App() {
             <Navbar.Brand href="/">Navbar</Navbar.Brand>
             <Nav className="me-auto">
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/create">Create</Nav.Link>
-              <Nav.Link href="/read">Read</Nav.Link>
+              <Nav.Link href="/maketask">Make Task</Nav.Link>
+              <Nav.Link href="/todolist">To Do List</Nav.Link>
             </Nav>
           </Container>
         </Navbar>
@@ -30,8 +30,8 @@ function App() {
         <Routes>
           {/* when we go to this path, show this component */}
           <Route path='/' element={<Content></Content>}></Route>
-          <Route path='/read' element={<Read></Read>}></Route>
-          <Route path='/create' element={<Create></Create>}></Route>
+          <Route path='/todolist' element={<ToDoList></ToDoList>}></Route>
+          <Route path='/maketask' element={<MakeTask></MakeTask>}></Route>
           <Route path='/edit/:id' element={<Edit></Edit>}></Route>
         </Routes>
 
