@@ -3,6 +3,7 @@ import axios from "axios";
 
 
 //this page adds a new task to the mongo database
+//used code from w3schools for form stuff
 function MakeTask() {
     //The React useState Hook allows us to track state in a function component.
     const [taskName, setTaskName] = useState('');
@@ -79,7 +80,7 @@ function MakeTask() {
                 </div>
                 {/* button to call the submit function */}
                 <div>
-                    <input type="submit" value="Add Task" />
+                    <input type="submit" value="Add Task" className="btn btn-info" />
                 </div>
             </form>
         </div>
